@@ -1,0 +1,32 @@
+.card {
+  border-radius: 8px;
+  border: 1px solid #bc9361;
+  background-color: rgb(158, 105, 76);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 24px;
+}
+
+.cardTitle {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.cardDescription {
+  font-size: 14px;
+  color: #ffffff;
+  margin: 0;
+}
+
+.cardContent {
+  padding: 24px;
+  padding-top: 0;
+}

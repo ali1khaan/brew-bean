@@ -1,70 +1,95 @@
-import { createContext, useContext, useState } from 'react';
-import toast from 'react-hot-toast';
+"use client"
 
-export type CartItem = {
-  id: string;
-  name: string;
-  price: number;
-  image?: string;
-  quantity: number;
-};
+import { createContext, useContext, useState, type ReactNode } from "react"
 
-type OrderContextType = {
-  cart: CartItem[];
-  addToCart: (item: CartItem) => void;
-  removeFromCart: (id: string) => void;
-  decreaseQuantity: (id: string) => void;
-  clearCart: () => void;
-};
+interface CartItem {
+  id: string
+  name: string
+  price: number
+  quantity: number
+  image?: string
+}
 
-const OrderContext = createContext<OrderContextType | undefined>(undefined);
+interface OrderContextType {
+  cart: CartItem[]
+  addToCart: (item: CartItem) => void
+  removeFromCart: (id: string) => void
+  updateQuantity: (id: string, quantity: number) => void
+  decreaseQuantity: (id: string) => void
+  clearCart: () => void
+  getTotalPrice: () => number
+  getTotalItems: () => number
+}
 
-export const OrderProvider = ({ children }: { children: React.ReactNode }) => {
-  const [cart, setCart] = useState<CartItem[]>([]);
+const OrderContext = createContext<OrderContextType | undefined>(undefined)
 
-  const addToCart = (item: CartItem) => {
-    setCart((prev) => {
-      const existing = prev.find((i) => i.id === item.id);
-      if (existing) {
-        return prev.map((i) =>
-          i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
-        );
-      }
-      return [...prev, { ...item, quantity: 1 }];
-    });
-    toast.success(`${item.name} added to cart`);
-  };
+export function OrderProvider({ children }: { children: ReactNode }) {
+  const [cart, setCart] = useState<CartItem[]>([])
 
-  const decreaseQuantity = (id: string) => {
-    setCart((prev) =>
-      prev
-        .map((i) =>
-          i.id === id ? { ...i, quantity: i.quantity - 1 } : i
+  const addToCart = (newItem: CartItem) => {
+    setCart((prevCart) => {
+      const existingItem = prevCart.find((item) => item.id === newItem.id)
+      if (existingItem) {
+        return prevCart.map((item) =>
+          item.id === newItem.id ? { ...item, quantity: item.quantity + newItem.quantity } : item,
         )
-        .filter((i) => i.quantity > 0)
-    );
-  };
+      }
+      return [...prevCart, newItem]
+    })
+  }
 
   const removeFromCart = (id: string) => {
-    const item = cart.find((i) => i.id === id);
-    setCart((prev) => prev.filter((i) => i.id !== id));
-    if (item) toast.success(`${item.name} removed`);
-  };
+    setCart((prevCart) => prevCart.filter((item) => item.id !== id))
+  }
+
+  const updateQuantity = (id: string, quantity: number) => {
+    if (quantity <= 0) {
+      removeFromCart(id)
+      return
+    }
+    setCart((prevCart) => prevCart.map((item) => (item.id === id ? { ...item, quantity } : item)))
+  }
+
+  const decreaseQuantity = (id: string) => {
+    setCart((prevCart) =>
+      prevCart.map((item) => (item.id === id ? { ...item, quantity: Math.max(1, item.quantity - 1) } : item)),
+    )
+  }
 
   const clearCart = () => {
-    setCart([]);
-    toast('Cart cleared', { icon: '🗑️' });
-  };
+    setCart([])
+  }
+
+  const getTotalPrice = () => {
+    return cart.reduce((total, item) => total + item.price * item.quantity, 0)
+  }
+
+  const getTotalItems = () => {
+    return cart.reduce((total, item) => total + item.quantity, 0)
+  }
 
   return (
-    <OrderContext.Provider value={{ cart, addToCart, removeFromCart, decreaseQuantity, clearCart }}>
+    <OrderContext.Provider
+      value={{
+        cart,
+        addToCart,
+        removeFromCart,
+        updateQuantity,
+        decreaseQuantity,
+        clearCart,
+        getTotalPrice,
+        getTotalItems,
+      }}
+    >
       {children}
     </OrderContext.Provider>
-  );
-};
+  )
+}
 
-export const useOrder = () => {
-  const context = useContext(OrderContext);
-  if (!context) throw new Error('useOrder must be used within OrderProvider');
-  return context;
-};
+export function useOrder() {
+  const context = useContext(OrderContext)
+  if (context === undefined) {
+    throw new Error("useOrder must be used within an OrderProvider")
+  }
+  return context
+}
