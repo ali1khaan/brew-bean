@@ -6,6 +6,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { useOrder } from "@/context/OrderContext"; 
 import CartSidebar from "./CartSidebar"; 
 
+
 export default function Navbar() {
   const [scrollUp, setScrollUp] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
