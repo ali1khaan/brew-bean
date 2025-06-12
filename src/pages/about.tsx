@@ -3,6 +3,7 @@ import Layout from '../components/Layout';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import styles from './About.module.css';
+import Link from 'next/link'; 
 
 const stats = [
   { label: 'Years Brewing', value: 7 },
@@ -48,7 +49,6 @@ function AnimatedNumber({ value, duration = 2000 }: AnimatedNumberProps) {
 }
 
 export default function About() {
-  
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -99,7 +99,6 @@ export default function About() {
           “Every cup is a chapter — come write your story with us.”
         </motion.p>
 
-        {}
         <motion.div
           className={styles.stats}
           initial={{ opacity: 0, y: 30 }}
@@ -120,7 +119,6 @@ export default function About() {
           ))}
         </motion.div>
 
-        {}
         <section style={{ marginTop: '6rem', textAlign: 'center' }}>
           <h2 style={{ color: 'var(--roasted-gold)', fontSize: '2.8rem', marginBottom: '2rem' }}>Meet The Team</h2>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '2.5rem', flexWrap: 'wrap' }}>
@@ -141,7 +139,7 @@ export default function About() {
           </div>
         </section>
 
-        {}
+         
         <motion.div
           style={{
             marginTop: '6rem',
@@ -161,25 +159,27 @@ export default function About() {
           <h3 style={{ color: 'var(--roasted-gold)', fontSize: '2rem', marginBottom: '1rem' }}>
             Ready to experience the magic?
           </h3>
-          <a 
-            href="/contact" 
-            style={{
-              display: 'inline-block',
-              backgroundColor: isHovered ? '#c69c6d' : 'var(--espresso)',
-              color: '#fff',
-              padding: '1rem 2.5rem',
-              borderRadius: 12,
-              fontWeight: 700,
-              fontSize: '1.1rem',
-              textDecoration: 'none',
-              boxShadow: '0 6px 18px rgba(140, 94, 60, 0.3)',
-              transition: 'background-color 0.3s ease'
-            }}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
-            Contact Us
-          </a>
+
+          <Link href="/contact" passHref legacyBehavior>
+            <a
+              style={{
+                display: 'inline-block',
+                backgroundColor: isHovered ? '#c69c6d' : 'var(--espresso)',
+                color: '#fff',
+                padding: '1rem 2.5rem',
+                borderRadius: 12,
+                fontWeight: 700,
+                fontSize: '1.1rem',
+                textDecoration: 'none',
+                boxShadow: '0 6px 18px rgba(140, 94, 60, 0.3)',
+                transition: 'background-color 0.3s ease'
+              }}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
+              Contact Us
+            </a>
+          </Link>
         </motion.div>
       </section>
     </Layout>

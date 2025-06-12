@@ -21,9 +21,10 @@ export default function Navbar() {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, [handleScroll]);
+
 
   const navItems = [
     { label: "Home", path: "/" },
