@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import styles from "./Navbar.module.css";
@@ -14,17 +14,17 @@ export default function Navbar() {
 
   const { cart } = useOrder();
 
-  const handleScroll = () => {
+  
+  const handleScroll = useCallback(() => {
     const currentScroll = window.scrollY;
     setScrollUp(currentScroll < lastScrollY || currentScroll < 10);
     setLastScrollY(currentScroll);
-  };
+  }, [lastScrollY]); 
 
   useEffect(() => {
-  window.addEventListener("scroll", handleScroll);
-  return () => window.removeEventListener("scroll", handleScroll);
-}, [handleScroll]);
-
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]); 
 
   const navItems = [
     { label: "Home", path: "/" },
@@ -77,7 +77,6 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {}
         <button
           className={styles.cartButton}
           onClick={() => setCartOpen(!cartOpen)}
@@ -90,7 +89,6 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {}
       <CartSidebar isOpen={cartOpen} onClose={() => setCartOpen(false)} />
     </>
   );

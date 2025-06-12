@@ -160,26 +160,25 @@ export default function About() {
             Ready to experience the magic?
           </h3>
 
-          <Link href="/contact" passHref legacyBehavior>
-            <a
-              style={{
-                display: 'inline-block',
-                backgroundColor: isHovered ? '#c69c6d' : 'var(--espresso)',
-                color: '#fff',
-                padding: '1rem 2.5rem',
-                borderRadius: 12,
-                fontWeight: 700,
-                fontSize: '1.1rem',
-                textDecoration: 'none',
-                boxShadow: '0 6px 18px rgba(140, 94, 60, 0.3)',
-                transition: 'background-color 0.3s ease'
-              }}
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-            >
-              Contact Us
-            </a>
-          </Link>
+          <Link
+  href="/contact"
+  style={{
+    display: 'inline-block',
+    backgroundColor: isHovered ? '#c69c6d' : 'var(--espresso)',
+    color: '#fff',
+    padding: '1rem 2.5rem',
+    borderRadius: 12,
+    fontWeight: 700,
+    fontSize: '1.1rem',
+    textDecoration: 'none',
+    boxShadow: '0 6px 18px rgba(140, 94, 60, 0.3)',
+    transition: 'background-color 0.3s ease'
+  }}
+  onMouseEnter={() => setIsHovered(true)}
+  onMouseLeave={() => setIsHovered(false)}
+>
+  Contact Us
+</Link>
         </motion.div>
       </section>
     </Layout>
