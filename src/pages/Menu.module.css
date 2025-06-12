@@ -1,0 +1,163 @@
+.menuSection {
+  max-width: 960px;
+  margin: 5rem auto 8rem;
+  padding: 0 2rem;
+  color: var(--espresso);
+  font-family: 'Georgia', serif;
+  text-align: center;
+}
+
+.title {
+  font-size: 3.8rem;
+  color: var(--roasted-gold);
+  margin-bottom: 0.5rem;
+  letter-spacing: 1.5px;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0 4rem;
+  flex-wrap: wrap;
+}
+
+.filter {
+  background-color: var(--cream-tan);
+  color: var(--espresso);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter:hover {
+  background-color: var(--roasted-gold);
+  color: white;
+}
+
+.menuGrid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 700px) {
+  .menuGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.menuItem {
+  background-color: #bb8e72;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid var(--cream-tan);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menuItem:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.itemHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--caramel);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.badge {
+  background-color: var(--roasted-gold);
+  color: rgb(160, 0, 0);
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.itemName {
+  letter-spacing: 0.8px;
+}
+
+.description {
+  font-size: 1rem;
+  color: var(--cream-tan);
+  margin-top: 0.4rem;
+  font-style: italic;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  color: var(--espresso);
+  align-items: center;
+}
+
+.price {
+  font-weight: 600;
+  color: var(--roasted-gold);
+}
+
+.calories {
+  font-weight: 500;
+}
+
+.diet {
+  background-color: #9bce9b;
+  color: #227a29;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.unavailable {
+  background-color: #fbeaea;
+  color: #bb2020;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.2rem;
+  background-color: var(--roasted-gold);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #b79a79;
+}
+
+.button:disabled {
+  background-color: #c2b280;
+  cursor: not-allowed;
+}

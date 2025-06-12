@@ -1,0 +1,19 @@
+.footer {
+  background-color: var(--espresso);
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+}
+
+.links {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.links a {
+  color: var(--roasted-gold);
+  text-decoration: none;
+}

@@ -1,0 +1,109 @@
+.featured {
+  padding: var(--space-lg) var(--space-sm);
+  text-align: center;
+  color: var(--clr-primary);
+  background-color: var(--background);
+}
+
+.heading {
+  font-size: var(--fs-xxl);
+  font-family: var(--ff-heading);
+  margin-bottom: 0.8rem;
+  color: var(--foreground);
+}
+
+.subheading {
+  font-size: var(--fs-md);
+  margin-bottom: var(--space-md);
+  color: var(--cta-text);
+}
+
+.category {
+  margin-bottom: var(--space-lg);
+}
+
+.categoryTitle {
+  font-size: var(--fs-xl);
+  margin-bottom: var(--space-md);
+  color: var(--cta-btn-text);
+}
+
+.menuGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-md);
+  justify-items: center;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-radius: var(--radius-lg);
+  padding: var(--space-sm);
+  max-width: 340px;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 24px var(--shadow-color);
+}
+
+.image {
+  border-radius: var(--radius-md);
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.name {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  color: var(--foreground);
+}
+
+.description {
+  font-size: var(--fs-sm);
+  color: var(--cta-text);
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+.price {
+  font-size: var(--fs-md);
+  font-weight: bold;
+  color: var(--cta-btn-text);
+  margin-bottom: 1rem;
+}
+
+/* Buy Now Button */
+.buyButton {
+  background-color: var(--cta-btn-bg);
+  color: var(--cta-btn-text);
+  font-weight: 700;
+  font-size: var(--fs-md);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(212, 180, 140, 0.4);
+  align-self: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.buyButton:hover,
+.buyButton:focus {
+  background-color: var(--cta-btn-hover);
+  box-shadow: 0 6px 12px rgba(230, 198, 168, 0.7);
+  outline: none;
+}
+
+.buyButton:active {
+  transform: scale(0.98);
+}

@@ -1,0 +1,89 @@
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { text-shadow: 0 0 8px #d4b48c, 0 0 20px #f4e1b6; }
+  50% { text-shadow: 0 0 12px #f4e1b6, 0 0 30px #d4b48c; }
+}
+
+.location {
+  padding: 5rem 3rem;
+  color: #ae927f;
+  text-align: center;
+  background: rgba(62, 44, 28, 0.65); /* glassmorphism */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 18px;
+  box-shadow: 0 16px 40px rgba(62, 44, 28, 0.6);
+  max-width: 900px;
+  margin: 3rem auto;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+  animation: floatUp 6s ease-in-out infinite;
+  font-family: 'Georgia', serif;
+}
+
+.location:hover {
+  background: rgba(62, 44, 28, 0.85);
+  box-shadow: 0 20px 60px rgba(212, 180, 140, 0.8);
+}
+
+.heading {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 0.6rem;
+  color: #d4b48c;
+  background: linear-gradient(45deg, #f4e1b6, #d4b48c, #baa28d);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: glowPulse 4s ease-in-out infinite;
+  letter-spacing: 0.12em;
+  user-select: none;
+  text-transform: uppercase;
+  text-shadow: 0 0 12px rgba(255, 238, 187, 0.8);
+}
+
+.subheading {
+  font-size: 1.4rem;
+  font-style: italic;
+  color: #c2a983cc;
+  margin-bottom: 3rem;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.15);
+  user-select: none;
+}
+
+.infoBox {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .infoBox {
+    flex-direction: row;
+    gap: 5rem;
+  }
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #d4b48c;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  user-select: none;
+  cursor: default;
+  transition: transform 0.3s ease, color 0.3s ease;
+  text-shadow: 0 0 6px rgba(212, 180, 140, 0.7);
+}
+
+.title:hover {
+  color: #f4e1b6;
+  transform: scale(1.1);
+  text-shadow: 0 0 14px #f4e1b6;
+}

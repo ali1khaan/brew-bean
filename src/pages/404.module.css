@@ -1,0 +1,22 @@
+.container {
+  text-align: center;
+  padding: 6rem 1rem;
+}
+
+.title {
+  font-size: 6rem;
+  color: var(--espresso);
+  margin-bottom: 1rem;
+}
+
+.message {
+  font-size: 1.5rem;
+  color: var(--roasted-gold);
+  margin-bottom: 2rem;
+}
+
+.link {
+  font-size: 1.2rem;
+  color: var(--espresso);
+  text-decoration: underline;
+}

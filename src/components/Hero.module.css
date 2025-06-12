@@ -1,0 +1,154 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+
+  /* Full width beast mode */
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
+  perspective: 1000px; /* For parallax depth */
+  will-change: transform;
+}
+
+.imageWrapper {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1;
+  filter: brightness(0.5) saturate(1.2);
+  transform-origin: center;
+  transition: transform 2s ease, filter 2s ease;
+  width: 100vw;
+  will-change: transform;
+
+  /* Parallax slow zoom */
+  animation: zoomPulse 20s ease-in-out infinite;
+}
+
+@keyframes zoomPulse {
+  0%, 100% { transform: scale(1) translateZ(0); }
+  50% { transform: scale(1.05) translateZ(30px); }
+}
+
+.overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(135deg, rgba(62,44,28,0.8) 0%, rgba(20,12,7,0.95) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 3;
+  max-width: 900px;
+  padding: 0 1.5rem;
+  text-align: center;
+  transform: translateY(50px);
+  opacity: 0;
+  transition: opacity 1.8s ease, transform 1.8s ease;
+}
+
+.animate .content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.title {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  text-shadow:
+    2px 2px 8px rgba(0,0,0,0.9),
+    0 0 20px #d4b48c,
+    0 0 30px #d4b48c;
+  animation: glowPulse 3s ease-in-out infinite alternate;
+  user-select: none;
+}
+
+@keyframes glowPulse {
+  from {
+    text-shadow:
+      2px 2px 8px rgba(0,0,0,0.8),
+      0 0 10px #d4b48c,
+      0 0 20px #d4b48c;
+  }
+  to {
+    text-shadow:
+      2px 2px 10px rgba(0,0,0,1),
+      0 0 25px #f2d9b1,
+      0 0 40px #f2d9b1;
+  }
+}
+
+.subtitle {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  font-weight: 400;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #e6d7c1;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+  user-select: none;
+}
+
+.ctaButton {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border-radius: 35px;
+  background: linear-gradient(90deg, #d4b48c 0%, #f2e7db 100%);
+  color: #3e2c1c;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  box-shadow: 0 6px 12px rgba(212, 180, 140, 0.5);
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.2s ease;
+  user-select: none;
+}
+
+.ctaButton:hover,
+.ctaButton:focus {
+  background: linear-gradient(90deg, #f2e7db 0%, #d4b48c 100%);
+  box-shadow:
+    0 10px 20px rgba(212, 180, 140, 0.8),
+    0 0 8px #d4b48c;
+  outline: none;
+  transform: translateY(-3px) scale(1.05);
+  animation: bounce 0.3s ease forwards;
+}
+
+@keyframes bounce {
+  0%   { transform: translateY(-3px) scale(1.05); }
+  50%  { transform: translateY(-6px) scale(1.1); }
+  100% { transform: translateY(-3px) scale(1.05); }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+  .ctaButton {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+}

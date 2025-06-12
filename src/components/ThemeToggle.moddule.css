@@ -1,0 +1,14 @@
+/* ThemeToggle.module.css */
+.toggleButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--foreground);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.toggleButton:hover {
+  transform: scale(1.2);
+  color: #d4b48c;
+}

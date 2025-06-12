@@ -1,0 +1,31 @@
+.container {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #c19178;
+}
+
+.heading {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  color: #c5aa88; /* blue-600 */
+}
+
+.text {
+  font-size: 1.25rem;
+  color: #c4a479; /* gray-500 */
+}
+
+.link {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #c2977a;
+  color: white;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.link:hover {
+  background-color: #cfa77a; /* darker blue */
+}

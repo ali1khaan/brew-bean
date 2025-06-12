@@ -1,0 +1,44 @@
+.testimonials {
+  padding: 5rem 2rem;
+  text-align: center;
+  color: #bb9c84;
+}
+
+.heading {
+  font-size: 2.6rem;
+  font-family: 'Georgia', serif;
+  margin-bottom: 0.8rem;
+}
+
+.subheading {
+  font-size: 1.2rem;
+  color: #a88a70;
+  margin-bottom: 3rem;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.card {
+  padding: 1.5rem 2rem;
+  max-width: 320px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.quote {
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #bea18d;
+}
+
+.name {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 700;
+  color: #c0a585;
+}
