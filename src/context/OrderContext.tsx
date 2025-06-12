@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, useContext, useState, type ReactNode } from "react"
+import { createContext, useContext, useState, useEffect, type ReactNode } from "react"
 
 interface CartItem {
   id: string
@@ -24,7 +24,22 @@ interface OrderContextType {
 const OrderContext = createContext<OrderContextType | undefined>(undefined)
 
 export function OrderProvider({ children }: { children: ReactNode }) {
-  const [cart, setCart] = useState<CartItem[]>([])
+  // Use useState with a function to avoid hydration issues
+  const [cart, setCart] = useState<CartItem[]>(() => {
+    // Only access localStorage on the client side
+    if (typeof window !== "undefined") {
+      const savedCart = localStorage.getItem("cart")
+      return savedCart ? JSON.parse(savedCart) : []
+    }
+    return []
+  })
+
+  // Save cart to localStorage when it changes
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("cart", JSON.stringify(cart))
+    }
+  }, [cart])
 
   const addToCart = (newItem: CartItem) => {
     setCart((prevCart) => {
@@ -52,7 +67,13 @@ export function OrderProvider({ children }: { children: ReactNode }) {
 
   const decreaseQuantity = (id: string) => {
     setCart((prevCart) =>
-      prevCart.map((item) => (item.id === id ? { ...item, quantity: Math.max(1, item.quantity - 1) } : item)),
+      prevCart.map((item) => {
+        if (item.id === id) {
+          const newQuantity = item.quantity - 1
+          return newQuantity > 0 ? { ...item, quantity: newQuantity } : item
+        }
+        return item
+      }),
     )
   }
 
