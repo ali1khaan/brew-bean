@@ -10,13 +10,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(30, 20, 10, 0.9); /* Semi-transparent dark */
-  backdrop-filter: blur(8px); /* Glassy blur */
+  background: rgba(30, 20, 10, 0.9); 
+  backdrop-filter: blur(8px);
   transition: top 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
   font-family: 'Playfair Display', serif;
 }
 
-/* Shadow when scrolled */
+
 .scrolled {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
@@ -92,7 +92,7 @@
   transition: color 0.3s ease;
 }
 
-/* Accessibility: Focus visible for keyboard users */
+
 .navList li a:focus-visible {
   outline: 2px solid #d4b48c;
   outline-offset: 4px;
@@ -154,10 +154,10 @@
   .navList li a {
     font-size: 1.3rem;
     width: 100%;
-    padding: 1rem 0; /* increased padding for better tap targets */
+    padding: 1rem 0; 
   }
 }
-/* Navbar.module.css (add at the bottom or wherever you keep buttons) */
+
 
 .cartButton {
   position: relative;
@@ -175,14 +175,14 @@
 }
 
 .cartButton:hover {
-  color: #93c5fd; /* lighter blue for hover */
+  color: #93c5fd; 
 }
 
 .cartBadge {
   position: absolute;
   top: -6px;
   right: -8px;
-  background-color: #ef4444; /* red-500 */
+  background-color: #ef4444; 
   color: white;
   font-size: 0.75rem;
   font-weight: 700;

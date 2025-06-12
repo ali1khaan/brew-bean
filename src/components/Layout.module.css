@@ -14,7 +14,7 @@
 }
 
 .navbar:hover {
-  background-color: #5a3e29; /* darker on hover for that extra depth */
+  background-color: #5a3e29; 
 }
 
 .logo {
@@ -80,7 +80,7 @@
 .footer {
   text-align: center;
   padding: 1rem;
-  background-color: #3e2f22; /* darker coffee brown */
+  background-color: #3e2f22; 
   color: #ccc;
   margin-top: 4rem;
   font-size: 0.9rem;
@@ -88,7 +88,7 @@
   user-select: none;
 }
 
-/* Mobile vibes */
+
 @media (max-width: 600px) {
   .navbar {
     flex-direction: column;

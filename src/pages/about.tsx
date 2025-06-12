@@ -16,8 +16,12 @@ const team = [
   { name: 'Jax', role: 'Cafe Manager', img: '/jax.jpg' },
 ];
 
-// This little champ animates numbers counting up from 0 to target value
-function AnimatedNumber({ value, duration = 2000 }: { value: number; duration?: number }) {
+type AnimatedNumberProps = {
+  value: number;
+  duration?: number;
+};
+
+function AnimatedNumber({ value, duration = 2000 }: AnimatedNumberProps) {
   const [displayValue, setDisplayValue] = useState(0);
 
   useEffect(() => {
@@ -31,7 +35,7 @@ function AnimatedNumber({ value, duration = 2000 }: { value: number; duration?: 
       if (progress < 1) {
         animationFrameId = requestAnimationFrame(step);
       } else {
-        setDisplayValue(value); // make sure it ends perfectly
+        setDisplayValue(value); 
       }
     };
 
@@ -44,6 +48,9 @@ function AnimatedNumber({ value, duration = 2000 }: { value: number; duration?: 
 }
 
 export default function About() {
+  
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <Layout>
       <section className={styles.aboutSection} aria-labelledby="about-title">
@@ -92,7 +99,7 @@ export default function About() {
           “Every cup is a chapter — come write your story with us.”
         </motion.p>
 
-        {/* Stats Section */}
+        {}
         <motion.div
           className={styles.stats}
           initial={{ opacity: 0, y: 30 }}
@@ -105,7 +112,6 @@ export default function About() {
             <div key={label} style={{ textAlign: 'center' }}>
               <motion.span 
                 style={{ fontSize: '2.8rem', fontWeight: '700', color: 'var(--roasted-gold)' }}
-                // Removed invalid count props from here!
               >
                 <AnimatedNumber value={value} />
               </motion.span>
@@ -114,35 +120,35 @@ export default function About() {
           ))}
         </motion.div>
 
-        {/* Team Section */}
+        {}
         <section style={{ marginTop: '6rem', textAlign: 'center' }}>
           <h2 style={{ color: 'var(--roasted-gold)', fontSize: '2.8rem', marginBottom: '2rem' }}>Meet The Team</h2>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '2.5rem', flexWrap: 'wrap' }}>
             {team.map(({ name, role, img }) => (
               <motion.div 
                 key={name} 
-                style={{ maxWidth: '180px', cursor: 'pointer', borderRadius: '14px', overflow: 'hidden', boxShadow: '0 6px 16px rgba(0,0,0,0.1)' }}
+                style={{ maxWidth: 180, cursor: 'pointer', borderRadius: 14, overflow: 'hidden', boxShadow: '0 6px 16px rgba(0,0,0,0.1)' }}
                 whileHover={{ scale: 1.05, boxShadow: '0 10px 30px rgba(140,94,60,0.3)' }}
                 transition={{ type: 'spring', stiffness: 300 }}
               >
-                <Image src={img} alt={`${name} - ${role}`} width={180} height={180} style={{ borderRadius: '14px' }} />
-                <div style={{ padding: '0.8rem', backgroundColor: 'var(--faded-brown,rgb(163, 136, 101))', color: 'var(--espresso)', fontWeight: '600' }}>
+                <Image src={img} alt={`${name} - ${role}`} width={180} height={180} style={{ borderRadius: 14 }} />
+                <div style={{ padding: '0.8rem', backgroundColor: 'var(--faded-brown)', color: 'var(--espresso)', fontWeight: 600 }}>
                   <p>{name}</p>
-                  <small style={{ color: 'var(--caramel)', fontWeight: '400' }}>{role}</small>
+                  <small style={{ color: 'var(--caramel)', fontWeight: 400 }}>{role}</small>
                 </div>
               </motion.div>
             ))}
           </div>
         </section>
 
-        {/* Call to Action */}
+        {}
         <motion.div
           style={{
             marginTop: '6rem',
             padding: '3rem 2rem',
-            background: 'var(--faded-brown,rgb(149, 127, 97))',
+            background: 'var(--faded-brown)',
             borderRadius: '1.5rem',
-            maxWidth: '720px',
+            maxWidth: 720,
             marginLeft: 'auto',
             marginRight: 'auto',
             boxShadow: '0 4px 20px rgba(140, 94, 60, 0.1)',
@@ -159,18 +165,18 @@ export default function About() {
             href="/contact" 
             style={{
               display: 'inline-block',
-              backgroundColor: 'var(--espresso)',
+              backgroundColor: isHovered ? '#c69c6d' : 'var(--espresso)',
               color: '#fff',
               padding: '1rem 2.5rem',
-              borderRadius: '12px',
-              fontWeight: '700',
+              borderRadius: 12,
+              fontWeight: 700,
               fontSize: '1.1rem',
               textDecoration: 'none',
               boxShadow: '0 6px 18px rgba(140, 94, 60, 0.3)',
               transition: 'background-color 0.3s ease'
             }}
-            onMouseEnter={e => (e.currentTarget.style.backgroundColor = '#c69c6d')}
-            onMouseLeave={e => (e.currentTarget.style.backgroundColor = 'var(--espresso)')}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
           >
             Contact Us
           </a>

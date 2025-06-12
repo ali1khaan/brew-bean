@@ -16,13 +16,13 @@ export default function AboutUs() {
           Our Story
         </h2>
         <p className={styles.text}>
-          <strong>Brew & Bean Café</strong> was born from a passion for exceptional coffee and
+          <strong>Brew & Bean Café</strong> was born from a passion for exceptional coffee and{' '}
           a desire to build a cozy haven where the community feels at home.
-          Every cup is crafted with intention using ethically sourced beans and
+          Every cup is crafted with intention using ethically sourced beans and{' '}
           a love for the process.
         </p>
         <p className={styles.text}>
-          Whether you're catching up with friends, grabbing a moment of peace,
+          Whether you&apos;re catching up with friends, grabbing a moment of peace,
           or working on your next big idea — Brew & Bean is your daily retreat.
         </p>
       </motion.div>

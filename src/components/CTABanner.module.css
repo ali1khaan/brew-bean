@@ -6,7 +6,7 @@
   max-width: 960px;
   margin: 0 auto;
   transition: transform 0.3s ease;
-  /* Added will-change for smoother hover */
+  
   will-change: transform;
 }
 
@@ -18,15 +18,15 @@
   font-size: 2rem;
   margin-bottom: 2rem;
   font-weight: 600;
-  color: #977e6a; /* warm roast */
+  color: #977e6a; 
   letter-spacing: 0.5px;
   max-width: 700px;
-  margin: 0 auto; /* combine margin-left/right to shorthand */
+  margin: 0 auto; 
 }
 
 .button {
   display: inline-block;
-  background-color: #8c5e3c; /* espresso */
+  background-color: #8c5e3c; 
   color: #fff;
   padding: 0.9rem 2.2rem;
   border-radius: 12px;
@@ -35,11 +35,11 @@
   text-decoration: none;
   box-shadow: 0 4px 12px rgba(140, 94, 60, 0.25);
   transition: all 0.3s ease;
-  cursor: pointer; /* added cursor pointer for clarity */
+  cursor: pointer; 
 }
 
 .button:hover {
-  background-color: #c69c6d; /* light roast */
+  background-color: #c69c6d; 
   box-shadow: 0 6px 18px rgba(198, 156, 109, 0.4);
   transform: translateY(-2px);
 }

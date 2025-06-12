@@ -1,7 +1,7 @@
 import Layout from '../components/Layout';
 import styles from './Shop.module.css';
 import Image from 'next/image';
-import { FaShoppingCart, FaLeaf, FaMugHot } from 'react-icons/fa';
+import { FaShoppingCart, FaMugHot } from 'react-icons/fa';
 
 const products = [
   {

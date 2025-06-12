@@ -1,4 +1,4 @@
-// components/Footer.tsx
+
 import Link from "next/link";
 import styles from "./Footer.module.css";
 
@@ -9,7 +9,7 @@ export default function Footer() {
       <div className={styles.links}>
         <Link href="/terms">Terms</Link>
         <Link href="/privacy">Privacy</Link>
-        {/* External link to Starbucks Instagram */}
+        
         <a
           href="https://www.instagram.com/starbucks/"
           target="_blank"

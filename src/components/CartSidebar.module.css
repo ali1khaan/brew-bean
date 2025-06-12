@@ -1,13 +1,11 @@
-/* src/components/CartSidebar.module.css */
-
 .sidebar {
   position: fixed;
   top: 0;
   right: 0;
   height: 100vh;
   width: 320px;
-  background-color: #41382a; /* slate-800 */
-  color: #f1f5f9; /* slate-100 */
+  background-color: #41382a; 
+  color: #f1f5f9; 
   box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
   transform: translateX(100%);
   transition: transform 0.3s ease-in-out;
@@ -25,7 +23,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1.25rem;
-  border-bottom: 1px solid #334155; /* slate-700 */
+  border-bottom: 1px solid #334155; 
   font-size: 1.25rem;
   font-weight: 700;
 }
@@ -40,7 +38,7 @@
 }
 
 .closeBtn:hover {
-  color: #ef4444; /* red-500 */
+  color: #ef4444; 
 }
 
 .content {

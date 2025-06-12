@@ -1,4 +1,3 @@
-// src/components/ToasterClient.tsx
 'use client';
 import { Toaster } from 'react-hot-toast';
 

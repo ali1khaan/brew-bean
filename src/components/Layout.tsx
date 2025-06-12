@@ -16,7 +16,7 @@ export default function Layout({ children }: LayoutProps) {
       <main id="main-content" className={styles.mainContent} tabIndex={-1}>
         {children}
       </main>
-      <Footer /> {/* ✅ added the footer down here */}
+      <Footer /> {}
     </>
   );
 }

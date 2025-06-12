@@ -1,11 +1,10 @@
-// src/components/Navbar.tsx
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import styles from "./Navbar.module.css";
 import { FaShoppingCart } from "react-icons/fa";
-import { useOrder } from "@/context/OrderContext"; // Adjust path if needed
-import CartSidebar from "./CartSidebar"; // Import your sliding cart sidebar
+import { useOrder } from "@/context/OrderContext"; 
+import CartSidebar from "./CartSidebar"; 
 
 export default function Navbar() {
   const [scrollUp, setScrollUp] = useState(true);
@@ -77,7 +76,7 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Cart Icon */}
+        {}
         <button
           className={styles.cartButton}
           onClick={() => setCartOpen(!cartOpen)}
@@ -90,7 +89,7 @@ export default function Navbar() {
         </button>
       </nav>
 
-      {/* Sliding Cart Sidebar */}
+      {}
       <CartSidebar isOpen={cartOpen} onClose={() => setCartOpen(false)} />
     </>
   );

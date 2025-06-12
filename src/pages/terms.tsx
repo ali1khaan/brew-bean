@@ -1,4 +1,5 @@
 import Layout from '../components/Layout';
+import Link from 'next/link';
 
 export default function Terms() {
   return (
@@ -21,7 +22,11 @@ export default function Terms() {
 
         <h2 className="text-2xl font-semibold mt-8 mb-2">3. Privacy Policy</h2>
         <p className="mb-4">
-          Please refer to our <a href="/privacy" className="text-blue-600 underline">Privacy Policy</a> for information about how we handle personal data.
+          Please refer to our{' '}
+          <Link href="/privacy" className="text-blue-600 underline">
+            Privacy Policy
+          </Link>{' '}
+          for information about how we handle personal data.
         </p>
 
         <h2 className="text-2xl font-semibold mt-8 mb-2">4. Changes to Terms</h2>

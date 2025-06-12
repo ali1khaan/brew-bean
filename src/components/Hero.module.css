@@ -8,14 +8,14 @@
   color: #fff;
   font-family: 'Montserrat', sans-serif;
 
-  /* Full width beast mode */
+  
   width: 100vw;
   left: 50%;
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
 
-  perspective: 1000px; /* For parallax depth */
+  perspective: 1000px; 
   will-change: transform;
 }
 
@@ -29,7 +29,7 @@
   width: 100vw;
   will-change: transform;
 
-  /* Parallax slow zoom */
+  
   animation: zoomPulse 20s ease-in-out infinite;
 }
 

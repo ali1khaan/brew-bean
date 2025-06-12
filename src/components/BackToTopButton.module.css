@@ -4,10 +4,10 @@
   right: 30px;
   width: 50px;
   height: 50px;
-  background-color: #daaf7b; /* blue-600 */
+  background-color: #daaf7b; 
   color: white;
   border: none;
-  border-radius: 50%; /* circle shape */
+  border-radius: 50%; 
   cursor: pointer;
   z-index: 1000;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
@@ -16,7 +16,7 @@
   align-items: center;
   font-size: 24px;
   opacity: 0;
-  transform: translateY(20px); /* start slightly down */
+  transform: translateY(20px); 
   pointer-events: none;
   transition: opacity 0.4s ease, transform 0.4s ease, background-color 0.3s ease;
 }
@@ -28,5 +28,5 @@
 }
 
 .backToTop:hover {
-  background-color: #b4905a; /* blue-700 */
+  background-color: #b4905a;
 }

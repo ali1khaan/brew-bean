@@ -1,4 +1,3 @@
-// src/components/FeaturedMenu.tsx
 import styles from './FeaturedMenu.module.css';
 import Image from 'next/image';
 import { motion } from 'framer-motion';

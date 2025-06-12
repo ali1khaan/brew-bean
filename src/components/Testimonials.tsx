@@ -23,7 +23,7 @@ export default function Testimonials() {
       <div className={styles.grid}>
         {testimonials.map((t, i) => (
           <div key={i} className={styles.card}>
-            <p className={styles.quote}>"{t.quote}"</p>
+            <p className={styles.quote}>&quot;{t.quote}&quot;</p>
             <span className={styles.name}>— {t.name}</span>
           </div>
         ))}

@@ -1,5 +1,5 @@
 import Layout from '../components/Layout';
-import { Briefcase, MapPin, Coffee, Clock } from 'lucide-react';
+import { Briefcase, MapPin, Clock } from 'lucide-react';
 
 export default function Careers() {
   return (
@@ -7,7 +7,7 @@ export default function Careers() {
       <section className="max-w-4xl mx-auto px-6 py-12 text-gray-800">
         <h1 className="text-4xl font-bold mb-4">Join the Brew & Bean Team ☕</h1>
         <p className="mb-8 text-gray-600">
-          We're always on the lookout for passionate, coffee-loving legends to join our growing family. Whether you're a barista pro or just starting your journey — if you’ve got the vibe, we’ve got the grind. 😮‍💨
+          We&apos;re always on the lookout for passionate, coffee-loving legends to join our growing family. Whether you&apos;re a barista pro or just starting your journey — if you’ve got the vibe, we&apos;ve got the grind. 😮‍💨
         </p>
 
         <div className="space-y-8">
