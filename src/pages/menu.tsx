@@ -1,3 +1,5 @@
+// pages/menu.tsx
+
 import React from 'react';
 import Layout from '../components/Layout';
 import styles from './Menu.module.css';
@@ -10,6 +12,7 @@ interface MenuItem {
   id: number;
   name: string;
   description: string;
+  category: string;
   price: string;
   badge: string;
   calories: number;
@@ -17,33 +20,11 @@ interface MenuItem {
   available: boolean;
 }
 
-interface Props {
+interface MenuProps {
   menuItems: MenuItem[];
 }
 
-export const getStaticProps = async () => {
-  const res = await fetch('https://dummyjson.com/products/category/groceries');
-  const data = await res.json();
-
-  const menuItems: MenuItem[] = data.products.slice(0, 6).map((item: any, index: number) => ({
-    id: item.id,
-    name: item.title,
-    description: item.description,
-    price: `$${item.price}`,
-    badge: index % 3 === 0 ? 'Best Seller' : index % 3 === 1 ? 'New' : 'Seasonal',
-    calories: 100 + index * 25,
-    dietary: index % 2 === 0 ? ['Vegan'] : ['Vegetarian'],
-    available: index % 4 !== 0,
-  }));
-
-  return {
-    props: {
-      menuItems,
-    },
-  };
-};
-
-export default function Menu({ menuItems }: Props) {
+export default function Menu({ menuItems }: MenuProps) {
   const { cart, addToCart } = useOrder();
 
   const parsePrice = (price: string) => Number(price.replace('$', ''));
@@ -123,4 +104,15 @@ export default function Menu({ menuItems }: Props) {
       </section>
     </Layout>
   );
+}
+
+export async function getStaticProps() {
+  const res = await fetch('http://localhost:3000/api/menu');
+  const menuItems: MenuItem[] = await res.json();
+
+  return {
+    props: {
+      menuItems,
+    },
+  };
 }
